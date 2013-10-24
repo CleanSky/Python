@@ -1,0 +1,216 @@
+[33mcommit 3f821fe4d402d6c7a9276077ba6198e0cfd356aa[m
+Author: BisnCou <zoubingsong@163.com>
+Date:   Thu Oct 24 09:40:24 2013 +0800
+
+    Python27 Codes
+
+[1mdiff --git a/log.txt b/log.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..16d3c3c[m
+[1m--- /dev/null[m
+[1m+++ b/log.txt[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[32m+[m[32mFatal error: invalid input![m
+[1mdiff --git a/makeText.txt b/makeText.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..35c13d4[m
+[1m--- /dev/null[m
+[1m+++ b/makeText.txt[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32masdf[m[41m[m
+[32m+[m[32masdfasdfasdfasdf[m[41m[m
+[32m+[m[32masdfasdfasdf[m[41m[m
+[32m+[m[32masdf[m[41m[m
+[32m+[m[32m×Þ±þËÉ[m[41m[m
+[1mdiff --git a/makeTextFile.py b/makeTextFile.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6f6cd7a[m
+[1m--- /dev/null[m
+[1m+++ b/makeTextFile.py[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32m# -*- coding: cp936 -*-[m
+[32m+[m[32mimport os    # ÒýÈëosÄ£¿é[m
+[32m+[m
+[32m+[m[32m# ¿çÆ½Ì¨µÄÐÐ½áÊø·û£¬ÓÉÓÚ½ÓÏÂÀ´ÔÚÑ­»·ÖÐ¾­³£Ê¹ÓÃ£¬¹ÊÓÃÒ»¸ö±¾µØ±äÁ¿À´Ìæ»»Ä£¿é±äÁ¿ÒÔÌá¸ßÐ§ÂÊ[m
+[32m+[m[32mls = os.linesep[m
+[32m+[m
+[32m+[m[32m# get filename[m
+[32m+[m[32mfname = raw_input("Enter the filename: ")[m
+[32m+[m
+[32m+[m[32m# judge whether the file exists or not[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    if os.path.exists(fname):[m
+[32m+[m[32m        print "Error: '%s' already exists" % fname[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        break[m
+[32m+[m
+[32m+[m[32m# get file content lines[m
+[32m+[m[32mall = [][m
+[32m+[m[32mprint "\nEnter lines ('.' by itself to quit).\n"[m
+[32m+[m
+[32m+[m[32m# loop until user terminates input[m
+[32m+[m[32mwhile True:[m
+[32m+[m[32m    entry = raw_input('>')[m
+[32m+[m[32m    if entry == '.':[m
+[32m+[m[32m        break[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        all.append(entry)[m
+[32m+[m
+[32m+[m[32m# write lines to file with proper line-ending[m
+[32m+[m[32mfobj = open(fname, 'w')[m
+[32m+[m[32mfobj.writelines(['%s%s' % (x, ls) for x in all])[m
+[32m+[m[32mfobj.close()[m
+[32m+[m
+[32m+[m[32mprint 'DONE'[m
+[1mdiff --git a/print_redirect.py b/print_redirect.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..13dc54b[m
+[1m--- /dev/null[m
+[1m+++ b/print_redirect.py[m
+[36m@@ -0,0 +1,57 @@[m
+[32m+[m[32mimport sys[m
+[32m+[m
+[32m+[m[32mlogfile = open("log.txt", 'a')[m
+[32m+[m[32mprint >> logfile, 'Fatal error: invalid input!'[m
+[32m+[m[32mlogfile.close()[m
+[32m+[m
+[32m+[m[32mfilename = raw_input('Enter file name: ')[m
+[32m+[m[32mfobj = open(filename, 'r')[m
+[32m+[m
+[32m+[m[32mfor eachLine in fobj:[m
+[32m+[m[32m    print eachLine,[m
+[32m+[m
+[32m+[m[32mfobj.close()[m
+[32m+[m
+[32m+[m[32m"""[m
+[32m+[m[32mtry:[m
+[32m+[m[32m    filename = raw_input('Enter the file name: ')[m
+[32m+[m[32m    fobj = open(filename, 'r')[m
+[32m+[m[32m    for eachLine in fobj:[m
+[32m+[m[32m        print eachLine,[m
+[32m+[m[32m    fobj.close()[m
+[32m+[m[32mexcept IOError, e:[m
+[32m+[m[32m    print 'file open error:', e[m
+[32m+[m
+[32m+[m[32mdef addMe2Me(x=1):[m
+[32m+[m[32m    return x + x[m
+[32m+[m
+[32m+[m[32mprint addMe2Me(4.25)[m
+[32m+[m[32mprint addMe2Me(13423)[m
+[32m+[m[32mprint addMe2Me('Python')[m
+[32m+[m[32mprint addMe2Me([-1, 'abc'])[m
+[32m+[m[32mprint addMe2Me()[m
+[32m+[m[32m"""[m
+[32m+[m
+[32m+[m[32mclass FooClass(object):[m
+[32m+[m[32m    """my very first class: FooClass"""[m
+[32m+[m[32m    version = 0.1 #class (data) attribute[m
+[32m+[m[32m    x = 2[m
+[32m+[m[32m    def __init__(self, nm='John Doe'):[m
+[32m+[m[32m        self.name = nm[m
+[32m+[m[32m        print 'Created a class instance for', nm[m
+[32m+[m[41m        [m
+[32m+[m[32m    def showname(self):[m
+[32m+[m[32m        print "Your name is", self.name[m
+[32m+[m[32m        print "My name is", self.__class__.__name__[m
+[32m+[m
+[32m+[m[32m    def showver(self):[m
+[32m+[m[32m        print self.version[m
+[32m+[m
+[32m+[m[32m    def addMe2Me(self, x = 1):[m
+[32m+[m[32m        return x + x[m
+[32m+[m
+[32m+[m[32mfoo = FooClass()[m
+[32m+[m[32mfoo.showname()[m
+[32m+[m[32mfoo.showver()[m
+[32m+[m[32mprint foo.addMe2Me()[m
+[32m+[m[32mprint foo.addMe2Me('xyz')[m
+[1mdiff --git a/readTextFile.py b/readTextFile.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a7822a7[m
+[1m--- /dev/null[m
+[1m+++ b/readTextFile.py[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32m# get filename[m
+[32m+[m[32mfname = raw_input("Enter the file name: ")[m
+[32m+[m
+[32m+[m[32m# attempt to open file for reading[m
+[32m+[m[32mtry:[m
+[32m+[m[32m    fobj = open(fname, 'r')[m
+[32m+[m[32mexcept IOError, e:[m
+[32m+[m[32m    print '***file open error:', e[m
+[32m+[m[32melse:[m
+[32m+[m[32m    # display contents to the screen[m
+[32m+[m[32m    for eachLine in fobj:[m
+[32m+[m[32m        print eachLine,[m
+[32m+[m[32m    fobj.close()[m
+[1mdiff --git a/test.txt b/test.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b8c1c49[m
+[1m--- /dev/null[m
+[1m+++ b/test.txt[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32masg[m[41m[m
+[32m+[m[32masf[m[41m[m
+[32m+[m[32masg[m[41m[m
+[32m+[m[32mas[m[41m[m
+[32m+[m[32mfasagas[m[41m[m
+[32m+[m[32mfg[m[41m[m
+[32m+[m[32masg[m[41m[m
+[32m+[m[32mas[m[41m[m
+[32m+[m[32mgd[m[41m[m
+[32m+[m[32mas[m[41m[m
+[32m+[m[32mgf[m[41m[m
+[32m+[m[32masdfasdfgfdsa[m[41m[m
+[1mdiff --git a/turtle_graphics.py b/turtle_graphics.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a7d5b8c[m
+[1m--- /dev/null[m
+[1m+++ b/turtle_graphics.py[m
+[36m@@ -0,0 +1,46 @@[m
+[32m+[m[32m# http://docs.python.org/2/library/turtle.html[m
+[32m+[m[32mimport turtle      # import turtle module[m
+[32m+[m
+[32m+[m
+[32m+[m[32mturtle.pensize(2) # Set pen thickness to 3 pixels[m
+[32m+[m[32mturtle.penup() # Pull the pen up[m
+[32m+[m[32mturtle.goto(-200, -50) # Coordinate (-200, -50) is center of the circle[m
+[32m+[m[32mturtle.pendown() # Pull the pen down[m
+[32m+[m[32mturtle.begin_fill() # Begin to fill color in a shape[m
+[32m+[m[32mturtle.color("red") # Use red color[m
+[32m+[m[32mturtle.circle(40, steps = 3) # Draw a triangle[m
+[32m+[m[32mturtle.end_fill() # Fill the shape[m
+[32m+[m
+[32m+[m[32mturtle.penup() # Pull the pen up[m
+[32m+[m[32mturtle.goto(-100, -50) # Coordinate (-100, -50) is center of the circle[m
+[32m+[m[32mturtle.pendown() # Pull the pen down[m
+[32m+[m[32mturtle.begin_fill() # Begin to fill color in a shape[m
+[32m+[m[32mturtle.color("orange") # Use orange color[m
+[32m+[m[32mturtle.circle(40, steps = 4) # Draw a square[m
+[32m+[m[32mturtle.end_fill() # Fill the shape[m
+[32m+[m
+[32m+[m[32mturtle.penup() # Pull the pen up[m
+[32m+[m[32mturtle.goto(0, -50) # Coordinate (0, -50) is center of the circle[m
+[32m+[m[32mturtle.pendown() # Pull the pen down[m
+[32m+[m[32mturtle.begin_fill() # Begin to fill color in a shape[m
+[32m+[m[32mturtle.color("green") # Use green color[m
+[32m+[m[32mturtle.circle(40, steps = 5) # Draw a pentagon[m
+[32m+[m[32mturtle.end_fill() # Fill the shape[m
+[32m+[m
+[32m+[m[32mturtle.penup() # Pull the pen up[m
+[32m+[m[32mturtle.goto(100, -50) # Coordinate (100, -50) is center of the circle[m
+[32m+[m[32mturtle.pendown() # Pull the pen down[m
+[32m+[m[32mturtle.begin_fill() # Begin to fill color in a shape[m
+[32m+[m[32mturtle.color("yellow") # Use yellow color[m
+[32m+[m[32mturtle.circle(40, steps = 6) # Draw a hexagon[m
+[32m+[m[32mturtle.end_fill() # Fill the shape[m
+[32m+[m
+[32m+[m[32mturtle.penup() # Pull the pen up[m
+[32m+[m[
